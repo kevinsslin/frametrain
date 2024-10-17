@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import type { Config, Role } from '..'
 
 export default function BetView(
@@ -28,6 +29,28 @@ export default function BetView(
         }
     } else {
         backgroundProp['backgroundImage'] = 'linear-gradient(to right, #0f0c29, #0b6bcb, #0f0c29)'
+=======
+export default function BetView(config: Record<string, any>) {
+    const { background, textColor } = config;
+
+    const claim = config.claim || 'No claim specified';
+    const owner = config.owner?.username || 'Unknown owner';
+    const opponent = config.opponent?.username || 'Unknown opponent';
+    const arbitrator = config.arbitrator?.username || 'Unknown arbitrator';
+    const asset = config.asset || 'Unknown asset';
+    const amount = config.amount || '0';
+
+    const backgroundProp: Record<string, string> = {};
+
+    if (background) {
+        if (background.startsWith('#')) {
+            backgroundProp['backgroundColor'] = background;
+        } else {
+            backgroundProp['backgroundImage'] = background;
+        }
+    } else {
+        backgroundProp['backgroundImage'] = 'linear-gradient(to right, #0f0c29, #0b6bcb, #0f0c29)';
+>>>>>>> e390ba7 (feat: set up basic config, inspector, and implement initial/bet handlers for Bet template)
     }
 
     return (
